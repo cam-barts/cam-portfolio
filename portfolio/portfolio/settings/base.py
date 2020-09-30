@@ -47,6 +47,8 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "wagtail.contrib.settings",
     "wagtail_feeds",
+    "wagtailfontawesome",
+    "wagtail_blocks",
 ]
 
 MIDDLEWARE = [

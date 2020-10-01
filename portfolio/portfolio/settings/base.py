@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     "wagtail_feeds",
     "wagtailfontawesome",
     "wagtail_blocks",
+    "wagtail_lazyimages",
 ]
 
 MIDDLEWARE = [

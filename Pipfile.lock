@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "485c73e337b2d3bf6911a11e1069b44810d02f0465515700ccc1dab7b6c8f367"
+            "sha256": "9b1ebdb33a9aa0f08de4f851d824fcfd8e67bbbdef83ac5ff9cd646306d60f0f"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -263,6 +263,13 @@
             ],
             "index": "pypi",
             "version": "==0.7.2"
+        },
+        "wagtail-lazyimages": {
+            "hashes": [
+                "sha256:7b960cb946f5f66e07445562718cf05f88f751ee13c7b179ce8993e56c10a9b4"
+            ],
+            "index": "pypi",
+            "version": "==0.1.8"
         },
         "wagtailfontawesome": {
             "hashes": [

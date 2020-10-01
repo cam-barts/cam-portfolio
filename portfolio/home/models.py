@@ -15,6 +15,7 @@ from wagtail_blocks.blocks import (
     MapBlock,
     ImageSliderBlock,
 )
+from wagtailstreamforms.blocks import WagtailFormBlock
 
 
 class HomePage(Page):
@@ -29,6 +30,7 @@ class HomePage(Page):
             ("chart", ChartBlock()),
             ("map", MapBlock()),
             ("image_slider", ImageSliderBlock()),
+            ('form', WagtailFormBlock())
         ],
         blank=True,
     )

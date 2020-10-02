@@ -16,6 +16,7 @@ from wagtail_blocks.blocks import (
     ImageSliderBlock,
 )
 from wagtailstreamforms.blocks import WagtailFormBlock
+from wagtail_resume.models import BaseResumePage
 
 
 class HomePage(Page):
@@ -30,7 +31,7 @@ class HomePage(Page):
             ("chart", ChartBlock()),
             ("map", MapBlock()),
             ("image_slider", ImageSliderBlock()),
-            ('form', WagtailFormBlock())
+            ("form", WagtailFormBlock()),
         ],
         blank=True,
     )
@@ -38,3 +39,7 @@ class HomePage(Page):
     content_panels = Page.content_panels + [
         StreamFieldPanel("body", classname="Full"),
     ]
+
+
+class ResumePage(BaseResumePage):
+    pass

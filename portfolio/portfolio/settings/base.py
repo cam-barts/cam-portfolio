@@ -50,8 +50,11 @@ INSTALLED_APPS = [
     "wagtailfontawesome",
     "wagtail_blocks",
     "wagtail_lazyimages",
-    'wagtail.contrib.modeladmin',
-    'wagtailstreamforms'
+    "wagtail.contrib.modeladmin",
+    "wagtailstreamforms",
+    "wagtailmetadata",
+    "wagtailmarkdown",
+    "wagtail_resume",
 ]
 
 MIDDLEWARE = [

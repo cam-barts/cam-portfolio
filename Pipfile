@@ -5,6 +5,8 @@ verify_ssl = true
 
 [dev-packages]
 black = "*"
+pre-commit = "*"
+commitizen = "*"
 
 [packages]
 wagtail = "<2.11,>=2.10"

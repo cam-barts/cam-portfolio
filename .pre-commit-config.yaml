@@ -18,3 +18,7 @@ repos:
     - commit-msg
   repo: https://github.com/commitizen-tools/commitizen
   rev: master
+-   repo: https://github.com/PyCQA/bandit
+    rev: 'master'
+    hooks:
+    - id: bandit

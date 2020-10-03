@@ -17,6 +17,7 @@ from wagtail_blocks.blocks import (
 )
 from wagtailstreamforms.blocks import WagtailFormBlock
 from wagtail_resume.models import BaseResumePage
+from portfolio.blocks import ParallaxBlock, MyCodeBlock
 
 
 class HomePage(Page):
@@ -32,6 +33,8 @@ class HomePage(Page):
             ("map", MapBlock()),
             ("image_slider", ImageSliderBlock()),
             ("form", WagtailFormBlock()),
+            ("Parallax", ParallaxBlock()),
+            ("Code", MyCodeBlock()),
         ],
         blank=True,
     )

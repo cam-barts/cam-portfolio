@@ -16,6 +16,7 @@ wagtail-blocks = "*"
 wagtail-lazyimages = "*"
 wagtailstreamforms = ">=2"
 wagtail-resume = "*"
+wagtailcodeblock = "*"
 
 [requires]
 python_version = "3.8"

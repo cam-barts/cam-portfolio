@@ -1,7 +1,5 @@
 const observer = lozad('.lazy');
 observer.observe();
-// object-fit polyfill run
-objectFitImages();
 
 /* init Jarallax */
 jarallax(document.querySelectorAll(".jarallax"));

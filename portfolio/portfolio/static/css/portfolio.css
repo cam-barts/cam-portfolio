@@ -1,5 +1,20 @@
+:root {
+    --background-color: #252526;
+    --text-color: #c6cccc;
+    --help-text: #3c3c3c;
+    --green: #23d18b;
+    --cyan: #28b8db;
+    --magenta: #d670d6;
+}
+
+body.template-homepage {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    font-family: "Fira Mono", "Consolas", monospace;
+}
+
 .help-text {
-    color: #6c757d;
+    color: var(--help-text);
 }
 
 .jarallax {
@@ -26,4 +41,26 @@
     justify-content: center;
     align-items: center;
     min-height: 50rem;
+}
+
+.navbar {
+    position: fixed;
+    z-index: 1000;
+    top: 0;
+    width: 100%;
+}
+
+.nav-link {
+    margin: 0.2em;
+}
+
+.darknav {
+    background: var(--background-color);
+    color: var(--text-color);
+}
+
+form {
+    display: block;
+    width: 50%;
+    margin: 0 auto;
 }

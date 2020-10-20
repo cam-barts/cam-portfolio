@@ -19,7 +19,13 @@ Delete the line below if you're just getting started and want to remove the welc
 {% comment %} {% include 'home/welcome_page.html' %} {% endcomment %}
 
 {% for block in page.body %}
-    {% include_block block with block_id=block.id %}
+    {% comment %} <script> console.write(block); </script> {% endcomment %}
+    {% if block.block_type == "Parallax" %}
+        {% include_block block with block_id=block.id %}
+    {% else %}
+        <div class="container-fluid">
+            {% include_block block with block_id=block.id %}
+        </div>
+    {% endif %}
 {% endfor %}
-
 {% endblock content %}

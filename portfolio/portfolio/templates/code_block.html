@@ -13,18 +13,18 @@
             </script>
         {% endif %}
         {% if key == "code" %}
-        <div class="codeblock">
-            {% comment %} <pre class="line-numbers"> {% endcomment %}
-            <pre>
-                <code id="target-element-current">{{ val }}</code>
-            </pre>
-            <script>
-                var block_num = (typeof block_num === 'undefined') ? 0 : block_num;
-                block_num++;
-                document.getElementById('target-element-current').className = language_class_name;
-                document.getElementById('target-element-current').id = 'target-element-' + block_num;
-            </script>
-        </div>
+            <div class="codeblock">
+                {% comment %} <pre class="line-numbers"> {% endcomment %}
+                <pre style="border-radius: 10px;">
+                    <code id="target-element-current">{{ val }}</code>
+                </pre>
+                <script>
+                    var block_num = (typeof block_num === 'undefined') ? 0 : block_num;
+                    block_num++;
+                    document.getElementById('target-element-current').className = language_class_name;
+                    document.getElementById('target-element-current').id = 'target-element-' + block_num;
+                </script>
+            </div>
         {% endif %}
     {% endfor %}
     {% block extra_js %}

@@ -1,5 +1,5 @@
 {% load static wagtailuserbar %}
-{% load lazyimages_tags %}
+{% load lazyimages_tags wagtailmetadata_tags %}
 
 <!DOCTYPE html>
 <html class="no-js" lang="en">
@@ -14,7 +14,13 @@
             gtag('config', 'UA-179317007-1');
         </script>
 
+        {% comment %} Meta Tags {% endcomment %}
+        {% meta_tags %}
         <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        {% block extra_meta %}
+        {% endblock extra_meta %}
+        
         <title>
             {% block title %}
                 {% if self.seo_title %}{{ self.seo_title }}{% else %}{{ self.title }}{% endif %}
@@ -25,12 +31,8 @@
                 {% endwith %}
             {% endblock %}
         </title>
-        <meta name="description" content="" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
 
         {# Global stylesheets #}
-        
-        
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
         <link rel="stylesheet" type="text/css" href="{% static 'css/portfolio.css' %}">
         <link href="https://fonts.googleapis.com/css2?family=Fira+Mono&display=swap" rel="stylesheet">

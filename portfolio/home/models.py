@@ -18,9 +18,10 @@ from wagtail_blocks.blocks import (
 from wagtailstreamforms.blocks import WagtailFormBlock
 from wagtail_resume.models import BaseResumePage
 from portfolio.blocks import ParallaxBlock, MyCodeBlock
+from wagtailmetadata.models import MetadataPageMixin
 
 
-class HomePage(Page):
+class HomePage(MetadataPageMixin, Page):
     body = StreamField(
         [
             ("header", HeaderBlock()),
@@ -38,11 +39,12 @@ class HomePage(Page):
         ],
         blank=True,
     )
-
+    author_twitter_handle = models.CharField(max_length=15)
     content_panels = Page.content_panels + [
         StreamFieldPanel("body", classname="Full"),
+        FieldPanel("author_twitter_handle"),
     ]
 
 
-class ResumePage(BaseResumePage):
+class ResumePage(MetadataPageMixin, BaseResumePage):
     pass

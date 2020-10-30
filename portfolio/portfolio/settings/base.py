@@ -56,6 +56,7 @@ INSTALLED_APPS = [
     "wagtailmarkdown",
     "wagtail_resume",
     "wagtailcodeblock",
+    "wagtailreadinglevel",
 ]
 
 MIDDLEWARE = [

@@ -24,7 +24,6 @@ BASE_DIR = os.path.dirname(PROJECT_DIR)
 # Application definition
 
 INSTALLED_APPS = [
-    "home",
     "search",
     "wagtail.contrib.forms",
     "wagtail.contrib.redirects",
@@ -56,8 +55,9 @@ INSTALLED_APPS = [
     "wagtailmarkdown",
     "wagtail_resume",
     "wagtailcodeblock",
+    "captcha",
+    "home",
     "wagtailreadinglevel",
-]
 
 MIDDLEWARE = [
     "django.contrib.sessions.middleware.SessionMiddleware",
@@ -168,3 +168,10 @@ WAGTAIL_SITE_NAME = "portfolio"
 # Base URL to use when referring to full URLs within the Wagtail admin backend -
 # e.g. in notification emails. Don't include '/admin' or a trailing slash
 BASE_URL = "http://example.com"
+
+
+import os
+
+RECAPTCHA_PUBLIC_KEY = os.environ["RECAPTCHA_PUBLIC_KEY"]
+RECAPTCHA_PRIVATE_KEY = os.environ["RECAPTCHA_PRIVATE_KEY"]
+NOCAPTCHA = True

@@ -57,7 +57,7 @@ INSTALLED_APPS = [
     "wagtailcodeblock",
     "captcha",
     "home",
-]
+    "wagtailreadinglevel",
 
 MIDDLEWARE = [
     "django.contrib.sessions.middleware.SessionMiddleware",

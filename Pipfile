@@ -19,6 +19,7 @@ wagtailstreamforms = ">=2"
 wagtail-resume = "*"
 wagtailcodeblock = "*"
 wagtail-metadata = "*"
+wagtail-readinglevel = "*"
 
 [requires]
 python_version = "3.8"

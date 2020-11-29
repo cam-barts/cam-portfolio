@@ -48,7 +48,9 @@
     <body class="{% block body_class %}{% endblock %}">
         {% wagtailuserbar %}
         {% include 'navbar.html' %}
-        {% block content %}{% endblock content%}
+        <div class="container-fluid content-container" style="margin-top:5em;">
+            {% block content %}{% endblock content%}
+        </div>
 
         {# Global javascript #}
         

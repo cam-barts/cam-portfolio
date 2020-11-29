@@ -58,6 +58,7 @@ INSTALLED_APPS = [
     "captcha",
     "home",
     "wagtailreadinglevel",
+]
 
 MIDDLEWARE = [
     "django.contrib.sessions.middleware.SessionMiddleware",

@@ -58,6 +58,7 @@ INSTALLED_APPS = [
     "captcha",
     "home",
     "wagtailreadinglevel",
+    "wagtail_unsplash"
 ]
 
 MIDDLEWARE = [
@@ -176,3 +177,8 @@ import os
 RECAPTCHA_PUBLIC_KEY = os.environ["RECAPTCHA_PUBLIC_KEY"]
 RECAPTCHA_PRIVATE_KEY = os.environ["RECAPTCHA_PRIVATE_KEY"]
 NOCAPTCHA = True
+
+WAGTAIL_UNSPLASH={
+    "CLIENT_ID": os.environ['UNSPLASH_CLIENT_ID'],
+    "CLIENT_SECRET": os.environ['UNSPLASH_SECRET']
+}

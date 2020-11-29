@@ -21,6 +21,7 @@ wagtailcodeblock = "*"
 wagtail-metadata = "*"
 wagtail-readinglevel = "*"
 django-recaptcha = "*"
+wagtail-unsplash = "*"
 
 [requires]
 python_version = "3.8"

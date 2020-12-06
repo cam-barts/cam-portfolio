@@ -75,3 +75,9 @@ form {
     z-index: 2;
     height: 100vh;
 }
+
+span.accent {
+    color: #DD0B7A;
+    font-size: 150%;
+    font-weight: 700;
+}

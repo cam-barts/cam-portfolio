@@ -6,7 +6,7 @@ from wagtail.admin.edit_handlers import FieldPanel, StreamFieldPanel
 from django_prometheus.models import ExportModelOperationsMixin
 
 from wagtail_blocks.blocks import (
-    HeaderBlock,
+    # HeaderBlock,
     ListBlock,
     ImageTextOverlayBlock,
     CroppedImagesWithTextBlock,
@@ -18,14 +18,14 @@ from wagtail_blocks.blocks import (
 )
 from wagtailstreamforms.blocks import WagtailFormBlock
 from wagtail_resume.models import BaseResumePage
-from portfolio.blocks import ParallaxBlock, MyCodeBlock, TimelineBlock
+from portfolio.blocks import ParallaxBlock, MyCodeBlock, TimelineBlock, MyHeaderBlock
 from wagtailmetadata.models import MetadataPageMixin
 
 
 class HomePage(ExportModelOperationsMixin("home_page"), MetadataPageMixin, Page):
     body = StreamField(
         [
-            ("header", HeaderBlock()),
+            ("header", MyHeaderBlock()),
             ("list", ListBlock()),
             ("image_text_overlay", ImageTextOverlayBlock()),
             ("cropped_images_with_text", CroppedImagesWithTextBlock()),

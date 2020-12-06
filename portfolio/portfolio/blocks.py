@@ -1,6 +1,7 @@
 from wagtail.core import blocks
 from wagtail.images.blocks import ImageChooserBlock
 from wagtailcodeblock.blocks import CodeBlock
+from wagtail_blocks.blocks import HeaderBlock
 
 
 class ParallaxBlock(blocks.StructBlock):
@@ -46,3 +47,7 @@ class TimelineBlock(blocks.StructBlock):
         icon = "arrows-up-down"
         label = "Timeline"
         template = "timeline.html"
+
+
+class MyHeaderBlock(HeaderBlock):
+    text = blocks.RichTextBlock(required=True, features=["accent"])

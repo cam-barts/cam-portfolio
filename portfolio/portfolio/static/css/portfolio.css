@@ -7,10 +7,15 @@
     --magenta: #d670d6;
 }
 
+body {
+    font-family: 'Exo 2', sans-serif;
+    font-weight: 200;
+}
+
 body.template-homepage {
     background-color: var(--background-color);
     color: var(--text-color);
-    font-family: "Fira Mono", "Consolas", monospace;
+    /* font-family: "Fira Mono", "Consolas", monospace; */
 }
 
 .help-text {

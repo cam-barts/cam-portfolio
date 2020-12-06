@@ -1,67 +1,60 @@
-{% load static wagtailuserbar %}
-{% load lazyimages_tags wagtailmetadata_tags %}
+{% load static wagtailuserbar %} {% load lazyimages_tags wagtailmetadata_tags %}
 
 <!DOCTYPE html>
 <html class="no-js" lang="en">
-    <head>
+
+<head>
     <!-- Global site tag (gtag.js) - Google Analytics -->
-        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-179317007-1"></script>
-        <script>
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-179317007-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
 
-            gtag('config', 'UA-179317007-1');
-        </script>
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
 
-        {% comment %} Meta Tags {% endcomment %}
-        {% meta_tags %}
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        {% block extra_meta %}
-        {% endblock extra_meta %}
-        
-        <title>
-            {% block title %}
-                {% if self.seo_title %}{{ self.seo_title }}{% else %}{{ self.title }}{% endif %}
-            {% endblock %}
-            {% block title_suffix %}
-                {% with self.get_site.site_name as site_name %}
-                    {% if site_name %}- {{ site_name }}{% endif %}
-                {% endwith %}
-            {% endblock %}
-        </title>
+        gtag('config', 'UA-179317007-1');
+    </script>
 
-        {# Global stylesheets #}
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-        <link rel="stylesheet" type="text/css" href="{% static 'css/portfolio.css' %}">
-        <link href="https://fonts.googleapis.com/css2?family=Fira+Mono&display=swap" rel="stylesheet">
-        
-        {% block extra_css %}
-        <!-- Extra CSS to Load -->
-            {# Override this in templates to add extra stylesheets #}
-        {% endblock %}
-        
+    {% comment %} Meta Tags {% endcomment %} {% meta_tags %}
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" /> {% block extra_meta %} {% endblock extra_meta %}
 
-    </head>
+    <title>
+        {% block title %} {% if self.seo_title %}{{ self.seo_title }}{% else %}{{ self.title }}{% endif %} {% endblock %} {% block title_suffix %} {% with self.get_site.site_name as site_name %} {% if site_name %}- {{ site_name }}{% endif %} {% endwith %} 
+        {%endblock %}
+    </title>
 
-    <body class="{% block body_class %}{% endblock %}">
-        {% wagtailuserbar %}
-        {% include 'navbar.html' %}
-        <div class="container-fluid content-container" style="margin-top:5em;">
-            {% block content %}{% endblock content%}
-        </div>
+    {# Global stylesheets #}
 
-        {# Global javascript #}
-        
-        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lozad/dist/lozad.min.js"></script>
-        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-        <script type="text/javascript" src="{% static 'js/portfolio.js' %}"></script>
-        
-        {% block extra_js %}
-        <!-- Extra JS to Load -->
-            {# Override this in templates to add extra javascript #}
-        {% endblock %}
-    </body>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/portfolio.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Mono&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@200;700&display=swap" rel="stylesheet"> {% block extra_css %}
+    <!-- Extra CSS to Load -->
+    {# Override this in templates to add extra stylesheets #} {% endblock %}
+
+
+</head>
+
+<body class="{% block body_class %}{% endblock %}">
+    {% wagtailuserbar %} {% include 'navbar.html' %}
+    <div class="container-fluid content-container" style="margin-top:5em;">
+        {% block content %}{% endblock content%}
+    </div>
+
+    {# Global javascript #}
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lozad/dist/lozad.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="{% static 'js/portfolio.js' %}"></script>
+
+    {% block extra_js %}
+    <!-- Extra JS to Load -->
+    {# Override this in templates to add extra javascript #} {% endblock %}
+</body>
+
 </html>

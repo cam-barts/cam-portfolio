@@ -16,6 +16,7 @@ urlpatterns = [
     path("documents/", include(wagtaildocs_urls)),
     path("search/", search_views.search, name="search"),
     path("resume/", include(resume_urls)),
+    url("", include("django_prometheus.urls")),
 ]
 from wagtail_feeds.feeds import BasicFeed, BasicJsonFeed, ExtendedFeed, ExtendedJsonFeed
 

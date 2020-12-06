@@ -1,0 +1,130 @@
+.outer {
+    display: flex;
+    justify-content: center;
+}
+
+.inner {
+    width: 80%;
+}
+
+.middle {
+    width: 50%;
+    border-image: linear-gradient(to right, black 0%, magenta 100%);
+    border-right: 5px solid;
+    border-image-slice: 1;
+    margin: 0;
+}
+
+.middle.first-dot {
+    border-bottom: 5px solid;
+}
+
+.middle.last-dot {
+    border-top: 5px solid;
+}
+
+.left {
+    border-image: linear-gradient(to right, black 0%, magenta 100%);
+    border-right: 5px solid;
+    border-image-slice: 1;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+}
+
+.right {
+    border-image: linear-gradient(to right, black 0%, magenta 100%);
+    border-left: 5px solid;
+    border-image-slice: 1;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+}
+
+.timeline-section {
+    border-image: linear-gradient(to right, black 0%, magenta 100%);
+    border-image-slice: 1;
+    border-top: 5px solid;
+}
+
+.first {
+    border-top: 0px;
+}
+
+.circle {
+    border-radius: 100%;
+}
+
+.cir-outer {
+    height: 50px;
+    width: 50px;
+    background: linear-gradient(to bottom, black 0%, magenta 100%);
+    display: flex;
+    justify-content: center;
+}
+
+.last-dot div.cir-outer {
+    background: linear-gradient(to bottom, magenta 0%, black 100%);
+}
+
+.cir-inner {
+    background-color: #252526;
+    height: 70%;
+    width: 70%;
+    margin: 15%;
+}
+
+.cir-wrapper {
+    /* 	width: 100%; */
+    display: flex;
+    justify-content: center;
+    margin: 0;
+}
+
+.right:first-child,
+.left:first-child {
+    padding-top: 20px;
+}
+
+.right:last-child,
+.left:last-child {
+    padding-bottom: 20px;
+}
+
+.right:before {
+    content: " ";
+    position: absolute;
+    padding: 10px;
+    height: 50px;
+    width: 50px;
+    background: #252526;
+    border: 5px solid;
+    border-radius: 50%;
+    left: 10%;
+    margin-left: 2.5px;
+    color: black;
+}
+
+.left:after {
+    content: " ";
+    position: absolute;
+    padding: 10px;
+    height: 50px;
+    width: 50px;
+    background: #252526;
+    border: 5px solid;
+    border-radius: 50%;
+    right: 10%;
+    margin-right: 2.5px;
+    color: magenta;
+}
+
+.blurb {
+    display: flex;
+    border: 1px dashed magenta;
+    align-items: center;
+    flex-direction: column;
+    width: 85%;
+    margin: 10px;
+    border-radius: 10px;
+}

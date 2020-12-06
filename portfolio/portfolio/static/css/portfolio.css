@@ -27,9 +27,7 @@ body.template-homepage {
     object-fit: cover;
     top: 0;
     left: 0;
-    width: 100%;
     z-index: -100;
-    height: 50rem;
 }
 
 .jarallax>.jarallax-window>div {
@@ -63,4 +61,12 @@ form {
     display: block;
     width: 50%;
     margin: 0 auto;
+}
+
+.mask {
+    position: block;
+    left: 0;
+    background: #1E1E1EAA;
+    z-index: 2;
+    height: 100vh;
 }

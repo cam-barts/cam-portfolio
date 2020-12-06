@@ -3,6 +3,7 @@ from django.db import models
 from wagtail.core.models import Page
 from wagtail.core.fields import StreamField
 from wagtail.admin.edit_handlers import FieldPanel, StreamFieldPanel
+from django_prometheus.models import ExportModelOperationsMixin
 
 from wagtail_blocks.blocks import (
     HeaderBlock,
@@ -17,11 +18,11 @@ from wagtail_blocks.blocks import (
 )
 from wagtailstreamforms.blocks import WagtailFormBlock
 from wagtail_resume.models import BaseResumePage
-from portfolio.blocks import ParallaxBlock, MyCodeBlock
+from portfolio.blocks import ParallaxBlock, MyCodeBlock, TimelineBlock
 from wagtailmetadata.models import MetadataPageMixin
 
 
-class HomePage(MetadataPageMixin, Page):
+class HomePage(ExportModelOperationsMixin("home_page"), MetadataPageMixin, Page):
     body = StreamField(
         [
             ("header", HeaderBlock()),
@@ -36,6 +37,7 @@ class HomePage(MetadataPageMixin, Page):
             ("form", WagtailFormBlock()),
             ("Parallax", ParallaxBlock()),
             ("Code", MyCodeBlock()),
+            ("Timeline", TimelineBlock()),
         ],
         blank=True,
     )
@@ -46,5 +48,7 @@ class HomePage(MetadataPageMixin, Page):
     ]
 
 
-class ResumePage(MetadataPageMixin, BaseResumePage):
+class ResumePage(
+    ExportModelOperationsMixin("resume_page"), MetadataPageMixin, BaseResumePage
+):
     pass

@@ -58,10 +58,12 @@ INSTALLED_APPS = [
     "captcha",
     "home",
     "wagtailreadinglevel",
-    "wagtail_unsplash"
+    "wagtail_unsplash",
+    "django_prometheus",
 ]
 
 MIDDLEWARE = [
+    "django_prometheus.middleware.PrometheusBeforeMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
@@ -70,6 +72,7 @@ MIDDLEWARE = [
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
     "django.middleware.security.SecurityMiddleware",
     "wagtail.contrib.redirects.middleware.RedirectMiddleware",
+    "django_prometheus.middleware.PrometheusAfterMiddleware",
 ]
 
 ROOT_URLCONF = "portfolio.urls"
@@ -100,7 +103,7 @@ WSGI_APPLICATION = "portfolio.wsgi.application"
 
 DATABASES = {
     "default": {
-        "ENGINE": "django.db.backends.sqlite3",
+        "ENGINE": "django_prometheus.db.backends.sqlite3",
         "NAME": os.path.join(BASE_DIR, "db.sqlite3"),
     }
 }
@@ -178,7 +181,7 @@ RECAPTCHA_PUBLIC_KEY = os.environ["RECAPTCHA_PUBLIC_KEY"]
 RECAPTCHA_PRIVATE_KEY = os.environ["RECAPTCHA_PRIVATE_KEY"]
 NOCAPTCHA = True
 
-WAGTAIL_UNSPLASH={
-    "CLIENT_ID": os.environ['UNSPLASH_CLIENT_ID'],
-    "CLIENT_SECRET": os.environ['UNSPLASH_SECRET']
+WAGTAIL_UNSPLASH = {
+    "CLIENT_ID": os.environ["UNSPLASH_CLIENT_ID"],
+    "CLIENT_SECRET": os.environ["UNSPLASH_SECRET"],
 }

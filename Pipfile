@@ -10,8 +10,8 @@ commitizen = "*"
 django-debug-toolbar = "*"
 
 [packages]
-wagtail = "<2.11,>=2.10"
-django = ">=3.1,<3.2"
+wagtail = "*"
+django = "*"
 django-wagtail-feeds = "*"
 wagtail-blocks = "*"
 wagtail-lazyimages = "*"
@@ -22,6 +22,7 @@ wagtail-metadata = "*"
 wagtail-readinglevel = "*"
 django-recaptcha = "*"
 wagtail-unsplash = "*"
+django-prometheus = "*"
 
 [requires]
 python_version = "3.8"

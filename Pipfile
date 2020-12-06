@@ -23,6 +23,7 @@ wagtail-readinglevel = "*"
 django-recaptcha = "*"
 wagtail-unsplash = "*"
 django-prometheus = "*"
+wagtailmenus = "*"
 
 [requires]
 python_version = "3.8"

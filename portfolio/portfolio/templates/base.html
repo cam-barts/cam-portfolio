@@ -1,4 +1,4 @@
-{% load static wagtailuserbar %} {% load lazyimages_tags wagtailmetadata_tags %}
+{% load static wagtailuserbar menu_tags %} {% load lazyimages_tags wagtailmetadata_tags %}
 
 <!DOCTYPE html>
 <html class="no-js" lang="en">
@@ -22,8 +22,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" /> {% block extra_meta %} {% endblock extra_meta %}
 
     <title>
-        {% block title %} {% if self.seo_title %}{{ self.seo_title }}{% else %}{{ self.title }}{% endif %} {% endblock %} {% block title_suffix %} {% with self.get_site.site_name as site_name %} {% if site_name %}- {{ site_name }}{% endif %} {% endwith %} 
-        {%endblock %}
+        {% block title %} {% if self.seo_title %}{{ self.seo_title }}{% else %}{{ self.title }}{% endif %} {% endblock %} {% block title_suffix %} {% with self.get_site.site_name as site_name %} {% if site_name %}- {{ site_name }}{% endif %} {% endwith %} {%endblock%}
     </title>
 
     {# Global stylesheets #}
@@ -40,7 +39,10 @@
 </head>
 
 <body class="{% block body_class %}{% endblock %}">
-    {% wagtailuserbar %} {% include 'navbar.html' %}
+    {% wagtailuserbar %} 
+    {% comment %} {% include 'navbar.html' %} {% endcomment %}
+    {%main_menu template="navbar.html"%}
+    
     <div class="content-container">
         {% block content %}{% endblock content%}
     </div>

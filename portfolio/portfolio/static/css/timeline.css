@@ -9,7 +9,7 @@
 
 .middle {
     width: 50%;
-    border-image: linear-gradient(to right, black 0%, magenta 100%);
+    border-image: linear-gradient(to right, var(--help-text) 0%, var(--magenta) 100%);
     border-right: 5px solid;
     border-image-slice: 1;
     margin: 0;
@@ -24,7 +24,7 @@
 }
 
 .left {
-    border-image: linear-gradient(to right, black 0%, magenta 100%);
+    border-image: linear-gradient(to right, var(--help-text) 0%, var(--magenta) 100%);
     border-right: 5px solid;
     border-image-slice: 1;
     margin: 0;
@@ -33,7 +33,7 @@
 }
 
 .right {
-    border-image: linear-gradient(to right, black 0%, magenta 100%);
+    border-image: linear-gradient(to right, var(--help-text) 0%, var(--magenta) 100%);
     border-left: 5px solid;
     border-image-slice: 1;
     margin: 0;
@@ -42,7 +42,7 @@
 }
 
 .timeline-section {
-    border-image: linear-gradient(to right, black 0%, magenta 100%);
+    border-image: linear-gradient(to right, var(--help-text) 0%, var(--magenta) 100%);
     border-image-slice: 1;
     border-top: 5px solid;
 }
@@ -58,17 +58,17 @@
 .cir-outer {
     height: 50px;
     width: 50px;
-    background: linear-gradient(to bottom, black 0%, magenta 100%);
+    background: linear-gradient(to bottom, var(--help-text) 0%, var(--magenta) 100%);
     display: flex;
     justify-content: center;
 }
 
 .last-dot div.cir-outer {
-    background: linear-gradient(to bottom, magenta 0%, black 100%);
+    background: linear-gradient(to bottom, var(--magenta) 0%, var(--help-text) 100%);
 }
 
 .cir-inner {
-    background-color: #252526;
+    background-color: var(--background-color);
     height: 70%;
     width: 70%;
     margin: 15%;
@@ -97,12 +97,12 @@
     padding: 10px;
     height: 50px;
     width: 50px;
-    background: #252526;
+    background: var(--background-color);
     border: 5px solid;
     border-radius: 50%;
     left: 10%;
     margin-left: -10px;
-    color: black;
+    color: var(--help-text);
 }
 
 .left:after {
@@ -111,17 +111,17 @@
     padding: 10px;
     height: 50px;
     width: 50px;
-    background: #252526;
+    background: var(--background-color);
     border: 5px solid;
     border-radius: 50%;
     right: 10%;
     margin-right: -10px;
-    color: magenta;
+    color: var(--magenta);
 }
 
 .blurb {
     display: flex;
-    border: 1px dashed magenta;
+    border: 1px dashed var(--magenta);
     align-items: center;
     flex-direction: column;
     width: 85%;

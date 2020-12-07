@@ -2,6 +2,8 @@ from .base import *
 import os
 
 DEBUG = False
+ALLOWED_HOSTS = [os.environ.get("DJANGO_HOST", "127.0.0.1")]
+EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
 
 SECRET_KEY = os.environ["SECRET_KEY"]
 
@@ -17,6 +19,10 @@ DATABASES = {
         "HOST": hostname + ".postgres.database.azure.com",
         "USER": os.environ["DBUSER"] + "@" + hostname,
         "PASSWORD": os.environ["DBPASS"],
+        "PORT": "5432",
+        "OPTIONS": {
+            "sslmode": "require",
+        },
     }
 }
 

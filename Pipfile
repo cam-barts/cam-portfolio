@@ -25,7 +25,8 @@ wagtail-unsplash = "*"
 django-prometheus = "*"
 wagtailmenus = "*"
 uvicorn = {extras = ["standard"], version = "*"}
-psycopg2 = "*"
+gunicorn = "*"
+psycopg2-binary = "*"
 
 [requires]
 python_version = "3.8"

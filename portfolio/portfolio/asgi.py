@@ -7,6 +7,9 @@ https://docs.djangoproject.com/en/3.0/howto/deployment/asgi/
 
 import os
 
+path = "/home/site/wwwroot/portfolio"
+os.environ["PATH"] += ":" + path
+
 from django.core.asgi import get_asgi_application
 
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "portfolio.settings.production")

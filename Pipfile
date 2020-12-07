@@ -24,7 +24,7 @@ django-recaptcha = "*"
 wagtail-unsplash = "*"
 django-prometheus = "*"
 wagtailmenus = "*"
-uvicorn = "*"
+uvicorn = {extras = ["standard"], version = "*"}
 psycopg2 = "*"
 
 [requires]

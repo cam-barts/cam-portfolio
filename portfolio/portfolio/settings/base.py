@@ -72,6 +72,7 @@ MIDDLEWARE = [
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
     "django.middleware.security.SecurityMiddleware",
+    "django.middleware.gzip.GZipMiddleware",
     "wagtail.contrib.redirects.middleware.RedirectMiddleware",
     "django_prometheus.middleware.PrometheusAfterMiddleware",
 ]
@@ -176,6 +177,11 @@ WAGTAIL_SITE_NAME = "portfolio"
 # e.g. in notification emails. Don't include '/admin' or a trailing slash
 BASE_URL = "http://example.com"
 
+
+WAGTAILSTREAMFORMS_FORM_TEMPLATES = (
+    ("streamforms/form_block.html", "Default Form Template"),  # default
+    ("form.html", "Custom Form Template"),
+)
 
 import os
 

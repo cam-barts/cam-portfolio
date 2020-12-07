@@ -3,6 +3,7 @@
     --text-color: #EAECEF;
     --black: #1b1d23;
     --dark-grey: #282C34CC;
+    --light-grey: #e2e2e2CC;
     --green: #23d188;
     --cyan: #28b8db;
     --magenta: #dd0b78;
@@ -19,7 +20,8 @@ body.template-homepage {
 }
 
 .help-text {
-    color: var(--black);
+    color: var(--light-grey);
+    font-size: 70%;
 }
 
 .jarallax {
@@ -74,9 +76,28 @@ body.template-homepage {
 }
 
 form {
-    display: block;
-    width: 50%;
-    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin: auto;
+}
+
+.form-container {
+    display: inline-block;
+    justify-content: center;
+    align-items: center;
+    padding: 5em;
+    width: 100%;
+    margin-bottom: 5rem;
+    background: var(--dark-grey);
+}
+
+.form-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 10rem;
 }
 
 .mask {
@@ -92,4 +113,9 @@ span.accent {
     color: var(--magenta);
     font-size: 150%;
     font-weight: 700;
+}
+
+label {
+    display: flex;
+    margin-right: 20px;
 }

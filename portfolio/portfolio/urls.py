@@ -7,7 +7,7 @@ from wagtail.admin import urls as wagtailadmin_urls
 from wagtail.core import urls as wagtail_urls
 from wagtail.documents import urls as wagtaildocs_urls
 from wagtail_resume import urls as resume_urls
-
+from django_prometheus import urls as prom_urls
 from search import views as search_views
 
 urlpatterns = [
@@ -16,7 +16,7 @@ urlpatterns = [
     path("documents/", include(wagtaildocs_urls)),
     path("search/", search_views.search, name="search"),
     path("resume/", include(resume_urls)),
-    url("", include("django_prometheus.urls")),
+    url("", include(prom_urls)),
 ]
 from wagtail_feeds.feeds import BasicFeed, BasicJsonFeed, ExtendedFeed, ExtendedJsonFeed
 

@@ -22,7 +22,7 @@ from portfolio.blocks import ParallaxBlock, MyCodeBlock, TimelineBlock, MyHeader
 from wagtailmetadata.models import MetadataPageMixin
 
 
-class HomePage(ExportModelOperationsMixin("home_page"), MetadataPageMixin, Page):
+class FlexPage(ExportModelOperationsMixin("flex_page"), MetadataPageMixin, Page):
     body = StreamField(
         [
             ("header", MyHeaderBlock()),

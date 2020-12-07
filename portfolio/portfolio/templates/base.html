@@ -1,4 +1,4 @@
-{% load static wagtailuserbar menu_tags %} {% load lazyimages_tags wagtailmetadata_tags %}
+{% load static wagtailuserbar menu_tags lazyimages_tags wagtailmetadata_tags wagtailcore_tags %}
 
 <!DOCTYPE html>
 <html class="no-js" lang="en">
@@ -17,7 +17,11 @@
         gtag('config', 'UA-179317007-1');
     </script>
 
-    {% comment %} Meta Tags {% endcomment %} {% meta_tags %}
+    {% comment %} Meta Tags {% endcomment %} 
+    {% if 'search' not in pageurl  %}
+        {% meta_tags %}
+    {% endif %}
+    
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" /> {% block extra_meta %} {% endblock extra_meta %}
 
@@ -39,10 +43,8 @@
 </head>
 
 <body class="{% block body_class %}{% endblock %}">
-    {% wagtailuserbar %} 
-    {% comment %} {% include 'navbar.html' %} {% endcomment %}
-    {%main_menu template="navbar.html"%}
-    
+    {% wagtailuserbar %} {% comment %} {% include 'navbar.html' %} {% endcomment %} {%main_menu template="navbar.html"%}
+
     <div class="content-container">
         {% block content %}{% endblock content%}
     </div>

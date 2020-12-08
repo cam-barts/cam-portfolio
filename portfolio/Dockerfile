@@ -1,5 +1,14 @@
 # Use an official Python runtime based on Debian 10 "buster" as a parent image.
-FROM python:3.8.1-slim-buster
+FROM python:3.8.6
+
+RUN apt-get update && apt-get install -y build-essential python3-dev python3-pip python3-setuptools python3-wheel python3-cffi libcairo2 libpango-1.0-0 libpangocairo-1.0-0 libgdk-pixbuf2.0-0 libffi-dev shared-mime-info
+
+
+# Add ARGS
+ARG RECAPTCHA_PUBLIC_KEY
+ARG RECAPTCHA_PRIVATE_KEY
+ARG UNSPLASH_CLIENT_ID
+ARG UNSPLASH_SECRET
 
 # Add user that will be used in the container.
 RUN useradd wagtail
@@ -30,7 +39,7 @@ RUN pip install "gunicorn==20.0.4"
 # Install the project requirements.
 COPY requirements.txt /
 RUN pip install -r /requirements.txt
-
+RUN pip install django-debug-toolbar
 # Use /app folder as a directory where the source code is stored.
 WORKDIR /app
 
@@ -48,6 +57,7 @@ USER wagtail
 # Collect static files.
 RUN python manage.py collectstatic --noinput --clear
 
+
 # Runtime command that executes when "docker run" is called, it does the
 # following:
 #   1. Migrate the database.
@@ -57,4 +67,6 @@ RUN python manage.py collectstatic --noinput --clear
 #   PRACTICE. The database should be migrated manually or using the release
 #   phase facilities of your hosting platform. This is used only so the
 #   Wagtail instance can be started with a simple "docker run" command.
-CMD set -xe; python manage.py migrate --noinput; gunicorn portfolio.wsgi:application
+
+RUN pwd
+CMD set -xe; python manage.py migrate --noinput; pwd; gunicorn portfolio.wsgi:application

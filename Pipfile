@@ -27,6 +27,7 @@ wagtailmenus = "*"
 uvicorn = {extras = ["standard"], version = "*"}
 gunicorn = "*"
 psycopg2-binary = "*"
+django-storages = {extras = ["azure"], version = "*"}
 
 [requires]
 python_version = "3.8"

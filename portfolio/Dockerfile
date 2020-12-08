@@ -68,5 +68,4 @@ RUN python manage.py collectstatic --noinput --clear
 #   phase facilities of your hosting platform. This is used only so the
 #   Wagtail instance can be started with a simple "docker run" command.
 
-RUN pwd
 CMD set -xe; python manage.py migrate --noinput; pwd; gunicorn portfolio.wsgi:application

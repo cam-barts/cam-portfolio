@@ -47,6 +47,18 @@ DATABASES = {
 }
 
 
+MIDDLEWARE = MIDDLEWARE + [
+    "django.middleware.cache.UpdateCacheMiddleware",
+    "django.middleware.cache.FetchFromCacheMiddleware",
+]
+
+CACHES = {
+    "default": {
+        "BACKEND": "django.core.cache.backends.db.DatabaseCache",
+        "LOCATION": "cache_table",
+    }
+}
+
 try:
     from .local import *
 except ImportError:

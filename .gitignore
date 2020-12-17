@@ -210,3 +210,4 @@ dmypy.json
 
 .vscode/
 portfolio/home/migrations/
+*docker_build.ps1

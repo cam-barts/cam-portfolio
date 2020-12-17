@@ -9,19 +9,26 @@ ARG RECAPTCHA_PUBLIC_KEY
 ARG RECAPTCHA_PRIVATE_KEY
 ARG UNSPLASH_CLIENT_ID
 ARG UNSPLASH_SECRET
+ARG SECRET_KEY
+ARG DBHOST
+ARG DBNAME
+ARG DBUSER
+ARG DBPASS
+ARG AZURE_ACCOUNT_NAME
+ARG AZURE_STORAGE_KEY
 
 # Add user that will be used in the container.
 RUN useradd wagtail
 
 # Port used by this container to serve HTTP.
-EXPOSE 8000
+EXPOSE 8080
 
 # Set environment variables.
 # 1. Force Python stdout and stderr streams to be unbuffered.
 # 2. Set PORT variable that is used by Gunicorn. This should match "EXPOSE"
 #    command.
 ENV PYTHONUNBUFFERED=1 \
-    PORT=8000
+    PORT=8080
 
 # Install system packages required by Wagtail and Django.
 RUN apt-get update --yes --quiet && apt-get install --yes --quiet --no-install-recommends \
@@ -33,13 +40,15 @@ RUN apt-get update --yes --quiet && apt-get install --yes --quiet --no-install-r
     libwebp-dev \
  && rm -rf /var/lib/apt/lists/*
 
+
+
 # Install the application server.
 RUN pip install "gunicorn==20.0.4"
 
 # Install the project requirements.
 COPY requirements.txt /
 RUN pip install -r /requirements.txt
-RUN pip install django-debug-toolbar
+# RUN pip install django-debug-toolbar
 # Use /app folder as a directory where the source code is stored.
 WORKDIR /app
 
@@ -55,7 +64,7 @@ COPY --chown=wagtail:wagtail . .
 USER wagtail
 
 # Collect static files.
-RUN python manage.py collectstatic --noinput --clear
+RUN python manage.py collectstatic --noinput --settings portfolio.settings.production
 
 
 # Runtime command that executes when "docker run" is called, it does the
@@ -68,4 +77,4 @@ RUN python manage.py collectstatic --noinput --clear
 #   phase facilities of your hosting platform. This is used only so the
 #   Wagtail instance can be started with a simple "docker run" command.
 
-CMD set -xe; python manage.py migrate --noinput; pwd; gunicorn portfolio.wsgi:application
+CMD set -xe; python manage.py migrate --noinput --settings portfolio.settings.production; pwd; gunicorn --workers 8 --threads 4 --timeout 60 -k uvicorn.workers.UvicornWorker --bind=0.0.0.0:8080 portfolio.asgi:application

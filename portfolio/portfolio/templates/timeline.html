@@ -21,8 +21,8 @@
             {% endif %}
             
             {% for blurb in section.blurbs %}
-                    <div class="{% if forloop.parentloop.counter|divisibleby:2 %}left{% else %}right{% endif %}">
-                        <div class="blurb container">
+                    <div class="{% if forloop.parentloop.counter|divisibleby:2 %}left{% else %}right{% endif %}" >
+                        <div class="blurb container" data-aos="{% if forloop.parentloop.counter|divisibleby:2 %}fade-left{% else %}fade-right{% endif %}">
                             <h2>{{blurb.blurb_header}}</h2>
                             <p>{{blurb.blurb_content}}</p>
                         </div>
@@ -46,4 +46,12 @@
 
 {% block extra_css %}
 <link rel="stylesheet" type="text/css" href="{% static 'css/timeline.css' %}">
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 {% endblock extra_css %}
+
+{% block extra_js %}
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+  AOS.init();
+</script>
+{% endblock extra_js %}

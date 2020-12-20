@@ -6,7 +6,8 @@
     --light-grey: #e2e2e2CC;
     --green: #23d188;
     --cyan: #28b8db;
-    --magenta: #dd0b78;
+    --magenta: #ff0d8a;
+    --light-magenta: #ff33b8;
 }
 
 body {
@@ -67,14 +68,10 @@ body.template-homepage {
     color: var(--magenta);
 }
 
-
-/* .navbar-toggler {
-    padding: .25em;
-} */
-
 .navbar-dark .navbar-nav .nav-link.active {
     color: var(--magenta);
     background: var(--black);
+    font-weight: 700;
 }
 
 .darknav {

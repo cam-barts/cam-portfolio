@@ -34,7 +34,7 @@ hostname = os.environ["DBHOST"]
 # which we construct using the DBHOST value.
 DATABASES = {
     "default": {
-        "ENGINE": "django.db.backends.postgresql",
+        "ENGINE": "django_prometheus.db.backends.postgresql",
         "NAME": os.environ["DBNAME"],
         "HOST": hostname + ".postgres.database.azure.com",
         "USER": os.environ["DBUSER"] + "@" + hostname,
@@ -50,6 +50,7 @@ DATABASES = {
 MIDDLEWARE = MIDDLEWARE + [
     "django.middleware.cache.UpdateCacheMiddleware",
     "django.middleware.cache.FetchFromCacheMiddleware",
+    "django_prometheus.middleware.PrometheusAfterMiddleware",
 ]
 
 CACHES = {

@@ -1,10 +1,8 @@
-<h2 class="form-header">{{ value.form.title }}</h2>
-<form{% if form.is_multipart %} enctype="multipart/form-data" {% endif %} action="{{ value.form_action }}" method="post"
-    novalidate>
+<!-- <h2 class="form-header">{{ value.form.title }}</h2> -->
+<form{% if form.is_multipart %} enctype="multipart/form-data" {% endif %} action="{{ value.form_action }}" method="post" novalidate>
     <div class="form-container container">
 
-        {{ form.media }} {% csrf_token %} {% for hidden in form.hidden_fields %} {{ hidden }} {% endfor %}
-        {% for field in form.visible_fields %}
+        {{ form.media }} {% csrf_token %} {% for hidden in form.hidden_fields %} {{ hidden }} {% endfor %} {% for field in form.visible_fields %}
 
         <div class="form-group">
             <div class="row">

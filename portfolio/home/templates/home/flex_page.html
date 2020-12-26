@@ -15,12 +15,12 @@
 {% for block in page.body %}
     {% if block.block_type == "Parallax" %}
         {% include_block block with block_id=block.id %}
-    {% elif block.block_type == "header"%}
-        <div class="container-fluid center">
+    {% elif block.block_type == "Timeline"%}
+        <div class="container-fluid">
             {% include_block block with block_id=block.id %}
         </div>
     {% else %}
-        <div class="container-fluid">
+        <div class="container-fluid center flex-section">
             {% include_block block with block_id=block.id %}
         </div>
     {% endif %}

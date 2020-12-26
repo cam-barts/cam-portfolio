@@ -18,6 +18,9 @@ body {
 body.template-homepage {
     background-color: var(--background-color);
     color: var(--text-color);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .help-text {
@@ -28,6 +31,7 @@ body.template-homepage {
 .jarallax {
     position: relative;
     z-index: 0;
+    margin-bottom: 2em;
 }
 
 .jarallax>.jarallax-window {
@@ -228,4 +232,21 @@ a:hover {
 
 a:focus {
     color: var(--magenta);
+}
+
+.flex-section {
+    margin: 1em;
+}
+
+blockquote {
+    background-color: var(--dark-grey);
+    width: 80%;
+    padding: 2em;
+    font-style: italic;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 1em 1em .5em var(--black);
+    font-size: 120%;
 }

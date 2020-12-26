@@ -4,6 +4,9 @@ from wagtail.core.models import Page
 from wagtail.core.fields import StreamField
 from wagtail.admin.edit_handlers import FieldPanel, StreamFieldPanel
 from django_prometheus.models import ExportModelOperationsMixin
+from wagtail.core import blocks
+from wagtail.embeds.blocks import EmbedBlock
+from wagtail.documents.blocks import DocumentChooserBlock
 
 from wagtail_blocks.blocks import (
     # HeaderBlock,
@@ -38,6 +41,10 @@ class FlexPage(ExportModelOperationsMixin("flex_page"), MetadataPageMixin, Page)
             ("Parallax", ParallaxBlock()),
             ("Code", MyCodeBlock()),
             ("Timeline", TimelineBlock()),
+            ("Text", blocks.RichTextBlock()),
+            ("Quote", blocks.BlockQuoteBlock()),
+            ("Embed", EmbedBlock()),
+            ("Document", DocumentChooserBlock()),
         ],
         blank=True,
     )

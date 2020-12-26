@@ -18,7 +18,7 @@
                     {% endif %} {% for blurb in section.blurbs %}
                     <div class="{% if forloop.parentloop.counter|divisibleby:2 %}left{% else %}right{% endif %}">
                         <div class="blurb container box-shadow" data-aos="{% if forloop.parentloop.counter|divisibleby:2 %}fade-left{% else %}fade-right{% endif %}">
-                            <h2>{{blurb.blurb_header}}</h2>
+                            <h2 class="post-header">{{blurb.blurb_header}}</h2>
                             <p>{{blurb.blurb_content}}</p>
                         </div>
                     </div>

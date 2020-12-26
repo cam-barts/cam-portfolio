@@ -52,3 +52,24 @@ class ResumePage(
     ExportModelOperationsMixin("resume_page"), MetadataPageMixin, BaseResumePage
 ):
     pass
+
+
+class IndexPage(ExportModelOperationsMixin("index_page"), MetadataPageMixin, Page):
+    body = StreamField(
+        [
+            ("header", MyHeaderBlock()),
+            ("Parallax", ParallaxBlock()),
+        ],
+        blank=True,
+    )
+
+    author_twitter_handle = models.CharField(max_length=15)
+    content_panels = Page.content_panels + [
+        StreamFieldPanel("body", classname="Full"),
+        FieldPanel("author_twitter_handle"),
+    ]
+
+    def get_context(self, request, *args, **kwargs):
+        context = super().get_context(request, *args, **kwargs)
+        context["posts"] = Page.objects.child_of(self).live().public().specific()
+        return context

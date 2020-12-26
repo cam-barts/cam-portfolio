@@ -1,9 +1,9 @@
 :root {
     --background-color: #1d2935;
-    --text-color: #EAECEF;
+    --text-color: #eaecef;
     --black: #1b1d23;
-    --dark-grey: #282C34CC;
-    --light-grey: #e2e2e2CC;
+    --dark-grey: #282c34cc;
+    --light-grey: #e2e2e2cc;
     --green: #23d188;
     --cyan: #28b8db;
     --magenta: #ff0d8a;
@@ -11,7 +11,7 @@
 }
 
 body {
-    font-family: 'Exo 2', sans-serif;
+    font-family: "Exo 2", sans-serif;
     font-weight: 200;
 }
 
@@ -46,6 +46,10 @@ body.template-homepage {
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
+}
+
+.parallax-text {
     min-height: 50rem;
 }
 
@@ -114,6 +118,9 @@ form {
     background: var(--black);
     opacity: 80%;
     z-index: 2;
+}
+
+.parallax-window .mask {
     height: 100vh;
 }
 
@@ -126,4 +133,99 @@ span.accent {
 label {
     display: flex;
     margin-right: 20px;
+}
+
+ul {
+    list-style-type: none;
+}
+
+input[type="radio"],
+input[type="checkbox"] {
+    margin-right: 0.5em;
+    margin-top: 0.25em;
+}
+
+.box-shadow {
+    box-shadow: 1em 1em 1em var(--black);
+}
+
+.grid-right {
+    height: 100%;
+    width: 90%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-gap: 18px;
+    grid-template-areas: "featured featured side1" "featured featured side2" "featured featured side3";
+}
+
+.grid-left {
+    height: 100%;
+    width: 90%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-gap: 18px;
+    grid-template-areas: "side1 featured featured" "side2 featured featured" "side3 featured featured";
+}
+
+.featured {
+    height: 600px;
+    grid-area: featured;
+}
+
+.side1 {
+    grid-area: side1;
+}
+
+.side2 {
+    grid-area: side2;
+}
+
+.side3 {
+    grid-area: side3;
+}
+
+.text-post {
+    background-color: var(--dark-grey);
+    padding: 2em;
+}
+
+.blog-section {
+    margin-top: 1em;
+    width: 100%;
+}
+
+.image-post .mask {
+    height: 100%;
+}
+
+.image-post:hover,
+.text-post:hover {
+    box-shadow: 1em 1em 0.5em var(--black);
+}
+
+.post-header {
+    font-weight: 700;
+}
+
+.post-description {
+    font-size: 85%;
+}
+
+.post-date {
+    font-size: 12px;
+    font-style: italic;
+}
+
+a {
+    color: var(--text-color);
+}
+
+a:hover {
+    color: var(--magenta);
+}
+
+a:focus {
+    color: var(--magenta);
 }

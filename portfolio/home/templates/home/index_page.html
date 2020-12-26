@@ -1,0 +1,73 @@
+{% extends "base.html" %} {% load static wagtailcore_tags wagtailimages_tags lazyimages_tags%} 
+{% block body_class %}template-homepage{% endblock %} 
+{% block extra_meta %}
+    <meta name="twitter:creator" content="@{{ page.author_twitter_handle }}" /> 
+{% endblock extra_meta %} 
+
+{% block content %} 
+{% for block in page.body %} 
+    {% if block.block_type == "Parallax" %} 
+        {% include_block block with block_id=block.id %} 
+    {% elif block.block_type == "header"%}
+        <div class="container-fluid center">
+            {% include_block block with block_id=block.id %}
+        </div>
+    {% else %}
+        <div class="container-fluid">
+            {% include_block block with block_id=block.id %}
+        </div>
+    {% endif %} 
+{% endfor %} 
+
+{% cycle 'grid-right' 'grid-left' as gridclass silent %}
+{% cycle 'featured' 'side1' 'side2' 'side3' as itemclass silent%}
+{% for post in posts reversed %}
+    {% if forloop.first %}
+        <div class="container-fluid center blog-section">
+        <div class="{{gridclass}}">
+    {% elif forloop.counter0|divisibleby:"4" %}
+        {% cycle gridclass %}
+        </div>
+        </div>
+        <div class="container-fluid center blog-section">
+        <div class="{{gridclass}}">
+    {% endif %}
+
+    {% comment %} For "featured" class{% endcomment %}
+    {% if forloop.first or forloop.counter0|divisibleby:"4" %}
+        {% if post.search_image %}
+            {% lazy_image post.search_image width-1200 format-webp as img %}
+            <div class="image-post box-shadow {{itemclass}}" style="background-image: url({{img.url}})">
+                <a href={{post.url}}>
+                    <div class="mask center">
+        {% else %}
+            <div class="text-post box-shadow {{itemclass}} center">
+                <a href="{{post.url}}">
+                    <div class="center">
+        {% endif %}
+    {% else %}
+        {% if post.search_image %}
+            {% lazy_image post.search_image height-376 format-webp as img %}
+            <div class="image-post box-shadow {{itemclass}}" style="background-image: url({{img.url}})">
+                <a href={{post.url}}>
+                    <div class="mask center">
+        {% else %}
+            <div class="text-post box-shadow {{itemclass}}">
+                <a href="{{post.url}}">
+                    <div class="center">
+        {% endif %}
+    {% endif %}
+
+                        <h2 class="post-header">{{post.title}}</h2>
+                        <p class="post-description">{{post.search_description }}</p>
+                        <p class="post-date">{{post.last_published_at}}</p>
+                    </div>
+                </a>
+            </div>
+    {% if forloop.last%}
+        </div>
+        </div>
+    {% endif %}
+    {% cycle itemclass %}
+    {% endfor %} 
+{% endblock content %}

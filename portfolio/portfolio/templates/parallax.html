@@ -1,6 +1,13 @@
 {% load wagtailcore_tags wagtailimages_tags lazyimages_tags %} {% lazy_image self.img height-1000 format-webp as img%} {% block content %}
 <div class="view jarallax">
     <div class="parallax-window" data-parallax="scroll" data-image-src="{{img.url}}" data-speed="{{self.speed}}">
+        {% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+            <li{% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</li>
+                {% endfor %}
+        </ul>
+        {% endif %}
         <div class="mask center">
             <div class="container flex-center text-center">
                 <div class="row mt-5">

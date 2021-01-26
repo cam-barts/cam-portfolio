@@ -17,7 +17,8 @@
         gtag('config', 'UA-179317007-1');
     </script>
 
-    {% comment %} Meta Tags {% endcomment %} {% if 'search' not in pageurl %} {% meta_tags %} {% endif %}
+    <!-- Meta Tags -->
+    {% meta_tags %}
 
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" /> {% block extra_meta %} {% endblock extra_meta %}
@@ -41,6 +42,8 @@
 
 <body class="{% block body_class %}{% endblock %}">
     {% wagtailuserbar %} {% comment %} {% include 'navbar.html' %} {% endcomment %} {%main_menu template="navbar.html"%}
+
+
 
     <div class="content-container">
         {% block content %}{% endblock content%}

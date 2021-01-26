@@ -13,16 +13,14 @@
                 <div class="col-md">
                     {{ field }}
                 </div>
-
-                {% if field.errors %}
-                <div class="invalid-feedback col">
+            </div>
+            {% if field.errors %}
+            <div class="row">
+                <div class="invalid-feedback col-md-6 offset-md-3">
                     {{ field.errors }}
                 </div>
-                {% endif %}
             </div>
-
-
-            {% if field.help_text %}
+            {% endif %} {% if field.help_text %}
             <div class="row">
                 <div class="col-md-6 offset-md-3">
                     <small class="form-text help-text">{{ field.help_text }}</small>

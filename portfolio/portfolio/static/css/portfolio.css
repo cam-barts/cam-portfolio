@@ -21,6 +21,7 @@ body.template-homepage {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    width: 100%;
 }
 
 .help-text {
@@ -246,7 +247,7 @@ a:focus {
 }
 
 .flex-section {
-    margin: 1em;
+    margin: 0em;
 }
 
 blockquote {

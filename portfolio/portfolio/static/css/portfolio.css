@@ -13,6 +13,7 @@
 body {
     font-family: "Exo 2", sans-serif;
     font-weight: 200;
+    padding-bottom: 5em;
 }
 
 body.template-homepage {
@@ -70,7 +71,6 @@ body.template-homepage {
 .nav-link {
     height: 3em;
     margin: 0;
-    background: var(--dark-grey);
 }
 
 .navbar-dark .navbar-nav .nav-link:hover {
@@ -235,11 +235,19 @@ input[type="checkbox"] {
 }
 
 .flex-section>.rich-text {
-    width: 80%;
+    width: 60%;
     background-color: var(--dark-grey);
     box-shadow: 1em 1em 1em var(--black);
-    padding: 1.5em;
+    padding: 3em;
     margin: 1em;
+}
+
+@media only screen and (max-width: 768px) {
+    .flex-section>.rich-text {
+        width: 100%;
+        background-color: var(--dark-grey);
+        padding: 1em;
+    }
 }
 
 .flex-section>.rich-text>p {
@@ -248,6 +256,13 @@ input[type="checkbox"] {
 
 a {
     color: var(--text-color);
+}
+
+.flex-section>.rich-text>p a,
+.flex-section>.rich-text>ul a,
+.flex-section>.rich-text>ol a {
+    color: var(--green);
+    font-size: 110%;
 }
 
 a:hover {
@@ -273,4 +288,14 @@ blockquote {
     align-items: center;
     box-shadow: 1em 1em .5em var(--black);
     font-size: 120%;
+}
+
+.document-section {
+    background-color: var(--dark-grey);
+    padding: 1em 3em 1em 3em;
+    flex-direction: row;
+}
+
+.document-section>i {
+    padding: 1em;
 }

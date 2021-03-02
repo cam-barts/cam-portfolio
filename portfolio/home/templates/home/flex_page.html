@@ -19,8 +19,18 @@
         <div class="container-fluid">
             {% include_block block with block_id=block.id %}
         </div>
-    {% else %}
+    {% elif block.block_type == "Document" %}
+
         <div class="container-fluid center flex-section">
+            <div class="document-section center box-shadow">
+                <i class="fas fa-file-download fa-2x"></i>
+                {% include_block block with block_id=block.id %}
+            </div>
+        </div>
+
+
+    {% else %}
+        <div class="container-fluid center flex-section {{block.block_type | lower}}-section">
             {% include_block block with block_id=block.id %}
         </div>
     {% endif %}

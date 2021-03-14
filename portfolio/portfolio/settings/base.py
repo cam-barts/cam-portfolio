@@ -174,7 +174,8 @@ WAGTAIL_SITE_NAME = "portfolio"
 
 # Base URL to use when referring to full URLs within the Wagtail admin backend -
 # e.g. in notification emails. Don't include '/admin' or a trailing slash
-BASE_URL = "http://example.com"
+BASE_URL = "https://shadeking.cam"
+EMAIL_BACKEND = "sendgrid_backend.SendgridBackend"
 
 
 WAGTAILSTREAMFORMS_FORM_TEMPLATES = (
@@ -192,3 +193,10 @@ WAGTAIL_UNSPLASH = {
     "CLIENT_ID": os.environ["UNSPLASH_CLIENT_ID"],
     "CLIENT_SECRET": os.environ["UNSPLASH_SECRET"],
 }
+
+
+SENDGRID_API_KEY = os.environ["SENDGRID_API_KEY"]
+WAGTAILADMIN_NOTIFICATION_FROM_EMAIL = "cam@shadeking.cam"
+DEFAULT_FROM_EMAIL = "cam@shadeking.cam"
+SENDGRID_SANDBOX_MODE_IN_DEBUG = False
+WAGTAILADMIN_NOTIFICATION_USE_HTML = True

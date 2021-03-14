@@ -490,4 +490,8 @@ input[type=submit]:focus {
         background-color: var(--black);
         padding: 1.5em;
     }
+    h1 p {
+        margin: 1em;
+        font-size: 60px;
+    }
 }

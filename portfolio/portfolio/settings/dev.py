@@ -17,7 +17,6 @@ SECRET_KEY = (
 # SECURITY WARNING: define the correct hosts in production!
 ALLOWED_HOSTS = ["*"]  # nosec development hosts
 
-EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
 
 MIDDLEWARE = MIDDLEWARE + [
     "debug_toolbar.middleware.DebugToolbarMiddleware",

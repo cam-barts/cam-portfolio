@@ -14,24 +14,21 @@
                     {{ field }}
                 </div>
             </div>
-            {% if field.errors %}
-            <div class="row">
-                <div class="invalid-feedback col-md-6 offset-md-3">
-                    {{ field.errors }}
-                </div>
-            </div>
-            {% endif %} {% if field.help_text %}
+            {% if field.help_text %}
             <div class="row">
                 <div class="col-md-6 offset-md-3">
                     <small class="form-text help-text">{{ field.help_text }}</small>
                 </div>
             </div>
+            {% endif %} {% if field.errors %}
+            <div class="row">
+                <div class="invalid-feedback col-md-6 offset-md-3">
+                    {{ field.errors }}
+                </div>
+            </div>
             {% endif %}
         </div>
-
-
-
-        {% endfor %}
+        <br> {% endfor %}
         <input type="submit" value="{{ value.form.submit_button_text }}">
     </div>
     </form>

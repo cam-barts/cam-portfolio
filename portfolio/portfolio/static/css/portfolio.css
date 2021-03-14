@@ -1,5 +1,5 @@
 :root {
-    --background-color: #1d2935;
+    --background-color: #0E1319;
     --text-color: #eaecef;
     --black: #1b1d23;
     --dark-grey: #282c34cc;
@@ -8,12 +8,53 @@
     --cyan: #28b8db;
     --magenta: #ff0d8a;
     --light-magenta: #ff33b8;
+    --magenta-box-shadow: #ff0d8a20;
+    --animation-time: 5s;
 }
 
 body {
-    font-family: "Exo 2", sans-serif;
     font-weight: 200;
     padding-bottom: 5em;
+    font-size: 18px;
+}
+
+h1 p {
+    font-family: 'Overpass Mono', monospace;
+    font-size: 75px;
+    letter-spacing: -2.5%;
+    line-height: 110%;
+}
+
+h1 span.accent {
+    font-size: 100%;
+    font-weight: 300;
+}
+
+h2 p {
+    font-family: 'Exo 2', sans-serif;
+    font-size: 48;
+    letter-spacing: -2%;
+    font-weight: 200;
+}
+
+h2 span.accent {
+    font-family: "Overpass Mono", monospace;
+    letter-spacing: -2.5%;
+}
+
+h3 p {
+    font-family: "Exo 2", sans-serif;
+    font-size: 30;
+    font-weight: 200;
+}
+
+h3 span.accent {
+    font-weight: 700;
+}
+
+p {
+    font-family: 'Nunito Sans', sans-serif;
+    line-height: 150%
 }
 
 body.template-homepage {
@@ -48,6 +89,18 @@ body.template-homepage {
     min-height: 100em;
 }
 
+.align-center {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.justify-center {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
 .center {
     display: flex;
     justify-content: center;
@@ -79,12 +132,12 @@ body.template-homepage {
 
 .navbar-dark .navbar-nav .nav-link.active {
     color: var(--magenta);
-    background: var(--black);
+    background: var(--background-color);
     font-weight: 700;
 }
 
 .darknav {
-    background: var(--dark-grey);
+    background: var(--black);
     color: var(--text-color);
 }
 
@@ -107,7 +160,7 @@ form {
     padding: 5em;
     width: 100%;
     margin-bottom: 5rem;
-    background: var(--dark-grey);
+    background: var(--black);
 }
 
 .form-header {
@@ -162,7 +215,7 @@ input[type="checkbox"] {
 }
 
 .box-shadow {
-    box-shadow: 1em 1em 1em var(--black);
+    box-shadow: .5em .5em .5em var(--magenta-box-shadow);
 }
 
 .grid-right {
@@ -203,7 +256,7 @@ input[type="checkbox"] {
 }
 
 .text-post {
-    background-color: var(--dark-grey);
+    background-color: var(--black);
     padding: 2em;
 }
 
@@ -218,7 +271,7 @@ input[type="checkbox"] {
 
 .image-post:hover,
 .text-post:hover {
-    box-shadow: 1em 1em 0.5em var(--black);
+    box-shadow: .75em .75em 0.5em var(--magenta);
 }
 
 .post-header {
@@ -235,23 +288,11 @@ input[type="checkbox"] {
 }
 
 .flex-section>.rich-text {
-    width: 60%;
-    background-color: var(--dark-grey);
-    box-shadow: 1em 1em 1em var(--black);
+    width: 80%;
+    background-color: var(--black);
+    box-shadow: .5em .5em .5em var(--magenta-box-shadow);
     padding: 3em;
     margin: 1em;
-}
-
-@media only screen and (max-width: 768px) {
-    .flex-section>.rich-text {
-        width: 100%;
-        background-color: var(--dark-grey);
-        padding: 1em;
-    }
-}
-
-.flex-section>.rich-text>p {
-    font-family: 'Palanquin', sans-serif;
 }
 
 a {
@@ -278,7 +319,7 @@ a:focus {
 }
 
 blockquote {
-    background-color: var(--dark-grey);
+    background-color: var(--black);
     width: 80%;
     padding: 2em;
     font-style: italic;
@@ -286,16 +327,167 @@ blockquote {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    box-shadow: 1em 1em .5em var(--black);
+    box-shadow: .5em .5em .5em var(--magenta-box-shadow);
     font-size: 120%;
 }
 
 .document-section {
-    background-color: var(--dark-grey);
+    background-color: var(--black);
     padding: 1em 3em 1em 3em;
     flex-direction: row;
 }
 
 .document-section>i {
     padding: 1em;
+}
+
+label {
+    font-family: 'Overpass Mono', monospace;
+}
+
+.invalid-feedback,
+#snackbar .error {
+    color: var(--light-magenta);
+    font-family: 'Exo 2';
+    font-weight: 700;
+}
+
+#snackbar .success {
+    color: var(--green);
+    font-family: 'Exo 2';
+    font-weight: 700;
+}
+
+input,
+select,
+textarea {
+    width: 80%;
+    background-color: var(--black);
+    color: var(--text-color);
+    border: 1px solid var(--magenta);
+    border-radius: 5px;
+    padding: .5em;
+}
+
+input[type=radio],
+input[type=checkbox] {
+    width: unset
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+    border: 2px solid #FFFFFFA0;
+    animation: flicker var(--animation-time) ease alternate infinite;
+    padding: .5em;
+}
+
+input[type=radio]:focus,
+input[type=checkbox]:focus {
+    animation: none;
+}
+
+input[type=submit] {
+    width: unset;
+    background-color: var(--black);
+    border-radius: 5px;
+    border: 2px solid #FFFFFFA0;
+    animation: flicker var(--animation-time) ease alternate infinite;
+    color: var(--text-color);
+    font-family: 'Overpass Mono', monospace;
+    padding: .75em;
+}
+
+input[type=submit]:hover,
+input[type=submit]:focus {
+    background-color: var(--background-color);
+    color: var(--magenta);
+}
+
+#snackbar {
+    visibility: hidden;
+    min-width: 250px;
+    margin-left: -125px;
+    background-color: var(--dark-grey);
+    color: var(--text-color);
+    text-align: center;
+    border-radius: 2px;
+    padding: 16px;
+    position: fixed;
+    z-index: 1;
+    left: 50%;
+    bottom: 30px;
+    font-size: 17px;
+}
+
+#snackbar.show {
+    visibility: visible;
+    -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+    animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+
+@-webkit-keyframes fadein {
+    from {
+        bottom: 0;
+        opacity: 0;
+    }
+    to {
+        bottom: 30px;
+        opacity: 1;
+    }
+}
+
+@keyframes fadein {
+    from {
+        bottom: 0;
+        opacity: 0;
+    }
+    to {
+        bottom: 30px;
+        opacity: 1;
+    }
+}
+
+@-webkit-keyframes fadeout {
+    from {
+        bottom: 30px;
+        opacity: 1;
+    }
+    to {
+        bottom: 0;
+        opacity: 0;
+    }
+}
+
+@keyframes fadeout {
+    from {
+        bottom: 30px;
+        opacity: 1;
+    }
+    to {
+        bottom: 0;
+        opacity: 0;
+    }
+}
+
+@keyframes flicker {
+    0%,
+    19%,
+    54%,
+    56%,
+    100% {
+        box-shadow: 0 0 0.5rem #FFFFFFA0, 0 0 1rem var(--magenta), inset 0 0 1rem var(--magenta);
+    }
+    55% {
+        text-shadow: none;
+        box-shadow: none;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .flex-section>.rich-text {
+        width: 100%;
+        background-color: var(--black);
+        padding: 1.5em;
+    }
 }
